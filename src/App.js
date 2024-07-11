@@ -201,7 +201,7 @@ function Message({ canPlay, score, resetGame }) {
   ];
 
   if (canPlay || score.current === 18) {
-    if (score.current <= 5) {
+    if (score.current <= 4) {
       return winMessages[score.current];
     } else if (score.current < 9) {
       return winMessages[4];
