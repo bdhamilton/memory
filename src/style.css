@@ -1,0 +1,190 @@
+/**
+	|| Defaults 
+**/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/**
+  || Global
+**/
+
+:root {
+  background-color: #056144;
+  font: 16px "Wittgenstein";
+}
+
+/**
+  || Header
+**/
+
+header {
+  background-color: #46806a;
+  text-align: center;
+  padding: 20px 0;
+  text-transform: lowercase;
+}
+
+h1 {
+  letter-spacing: -1px;
+  font-weight: 900;
+  margin-bottom: 0.5em;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+/**
+  || Messages
+**/
+
+.message {
+  background-color: #46806a;
+  border: 1px solid #46806a;
+  border-radius: 35px;
+  color: white;
+  font-size: 1.1em;
+  padding: 1em 2em;
+  margin: 1em auto;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.message button {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.message button:hover {
+  opacity: .8;
+}
+
+/**
+  || Table
+**/
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(3, 142px);
+  max-width: 426px;
+  margin: 2em auto;
+}
+
+.card:nth-child(even) {
+  position: relative;
+  top: -3px;
+}
+
+.card:nth-child(3n+2) {
+  animation-delay: 150ms;
+}
+
+.card:nth-child(3n+3) {
+  animation-delay: 300ms;
+}
+
+
+/**
+  || Playing Card
+**/
+
+.card {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 200px;
+  width: 100%;
+  padding: .8em;
+  margin-bottom: 0.5em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  color: black;
+  filter: drop-shadow(0px 0px 5px #333);
+  cursor: pointer;
+
+  animation: slide 0.8s forwards;
+  transform: translateX(-2000px);
+}
+
+@keyframes slide {
+  0% { transform: translateX(-2000px); }
+  100% { transform: translateX(0); }
+}
+
+.card--red {
+  color: #f2302e;
+}
+
+.suit {
+  text-align: center;
+  font-size: 2.9rem;
+  width: 100%;
+  align-content: center;
+  flex: 1;
+}
+
+.number,
+.number-reversed {
+  font-size: 1.3rem;
+  line-height: 1.2;
+  width: 1.1em;
+  margin-right: auto;
+}
+
+.card span {
+  display: block;
+}
+
+.number-reversed {
+  transform: rotate(180deg);
+  align-content: right;
+  margin: auto 0 auto auto;
+}
+
+.card:hover:not(.disabled) {
+  filter: drop-shadow(0 0 15px #333);
+  z-index: 1000;
+}
+
+.card.disabled {
+  background-color: #aaa;
+  border-color: #aaa;
+  cursor: default;
+  color: #333
+}
+
+.card.card--red.disabled {
+  color: rgb(110, 40, 40);
+}
